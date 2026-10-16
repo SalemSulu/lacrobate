@@ -1,0 +1,1709 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      L'Acrobate Restaurant | Expérience Culinaires & Cadre Lumineux
+    </title>
+    <meta
+      name="description"
+      content="Découvrez L'Acrobate Restaurant. Une expérience gastronomique contemporaine dans un cadre lumineux, mariant jaune moutarde, structures noires et matières naturelles."
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cormorant Garamond & Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              acrobate: {
+                mustard: "#D9A928",
+                mustardDark: "#B88B1D",
+                black: "#191919",
+                darkCard: "#222222",
+                ivory: "#F8F5EF",
+                ivoryDark: "#EFEBE2",
+                beige: "#E8D9C5",
+                wood: "#B98457",
+                green: "#62764C",
+                grayMuted: "#8E8A83",
+                grayDark: "#2E2D2B",
+              },
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', "serif"],
+              sans: ['"Manrope"', "sans-serif"],
+            },
+            backgroundImage: {
+              "hero-overlay":
+                "linear-gradient(180deg, rgba(25, 25, 25, 0.75) 0%, rgba(25, 25, 25, 0.45) 50%, rgba(25, 25, 25, 0.9) 100%)",
+              "window-slats":
+                "repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(217, 169, 40, 0.05) 40px, rgba(217, 169, 40, 0.05) 42px)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* CSS Variables */
+      :root {
+        --color-mustard: #d9a928;
+        --color-black: #191919;
+        --color-ivory: #f8f5ef;
+        --color-beige: #e8d9c5;
+        --color-wood: #b98457;
+        --color-green: #62764c;
+      }
+
+      /* Custom Architectural Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #191919;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2e2d2b;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d9a928;
+      }
+
+      /* Mustard Line Drawing Animation */
+      .mustard-line-draw {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: drawLine 2.2s ease-out forwards;
+      }
+
+      @keyframes drawLine {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Blur Overlay CSS for Mobile Backdrop Support */
+      .backdrop-blur-mobile {
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+      }
+
+      #mobile-menu {
+        background-color: rgba(25, 25, 25, 0.68) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(135%);
+        backdrop-filter: blur(24px) saturate(135%);
+      }
+
+      /* Architectural Window Frame Element */
+      .window-frame-border {
+        border: 1px solid rgba(217, 169, 40, 0.25);
+        position: relative;
+      }
+      .window-frame-border::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background: rgba(217, 169, 40, 0.15);
+        pointer-events: none;
+      }
+
+      /* Focus Ring Accessibility Standard */
+      *:focus-visible {
+        outline: 2px solid #d9a928;
+        outline-offset: 3px;
+      }
+
+      /* Reduced Motion Guardrail */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        ::before,
+        ::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-acrobate-ivory text-acrobate-black font-sans selection:bg-acrobate-mustard selection:text-acrobate-black overflow-x-hidden"
+  >
+    <!-- HEADER / NAVIGATION BAR -->
+    <header
+      id="main-header"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-5 px-6 lg:px-12"
+    >
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- Brand Logo -->
+        <a href="#hero" class="group flex items-center gap-3">
+          <div
+            class="w-10 h-10 border-2 border-acrobate-mustard rounded-lg flex items-center justify-center bg-acrobate-black text-acrobate-mustard transition-transform duration-300 group-hover:scale-105 shadow-md"
+          >
+            <span class="font-serif font-bold text-xl tracking-tighter">A</span>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-serif text-xl sm:text-2xl tracking-[0.15em] uppercase font-bold text-white group-hover:text-acrobate-mustard transition-colors drop-shadow-sm"
+              >L'ACROBATE</span
+            >
+            <span
+              class="text-[9px] tracking-[0.25em] uppercase text-acrobate-mustard font-medium"
+              >Restaurant & Experience</span
+            >
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav
+          class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-widest uppercase"
+        >
+          <a
+            href="#about"
+            class="nav-link text-white/90 hover:text-acrobate-mustard transition-colors py-1"
+            >À Propos</a
+          >
+          <a
+            href="#ambiance"
+            class="nav-link text-white/90 hover:text-acrobate-mustard transition-colors py-1"
+            >Le Cadre</a
+          >
+          <a
+            href="#menu"
+            class="nav-link text-white/90 hover:text-acrobate-mustard transition-colors py-1"
+            >La Carte</a
+          >
+          <a
+            href="#gallery"
+            class="nav-link text-white/90 hover:text-acrobate-mustard transition-colors py-1"
+            >Galerie</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-white/90 hover:text-acrobate-mustard transition-colors py-1"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- CTA Button & Mobile Toggle -->
+        <div class="flex items-center space-x-4">
+          <a
+            href="#reservation"
+            class="hidden sm:inline-flex items-center px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-acrobate-mustard hover:bg-acrobate-mustardDark text-acrobate-black transition-all duration-300 shadow-lg shadow-acrobate-mustard/20 hover:-translate-y-0.5"
+          >
+            <i class="fa-regular fa-calendar-check mr-2 text-sm"></i>
+            <span>Réserver une table</span>
+          </a>
+
+          <button
+            id="mobile-menu-btn"
+            aria-label="Ouvrir le menu"
+            class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 text-white bg-acrobate-black/40 rounded-lg backdrop-blur-md border border-white/20 focus:outline-none z-50"
+          >
+            <span
+              class="w-5 h-0.5 bg-acrobate-mustard transition-all duration-300"
+              id="line1"
+            ></span>
+            <span
+              class="w-5 h-0.5 bg-white transition-all duration-300"
+              id="line2"
+            ></span>
+            <span
+              class="w-3 h-0.5 bg-acrobate-mustard transition-all duration-300 self-end mr-2"
+              id="line3"
+            ></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Overlay with Strong Blur Effect -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden fixed inset-0 bg-acrobate-black/85 backdrop-blur-mobile z-40 flex flex-col justify-between p-8 transition-all duration-300 opacity-0 pt-28"
+      >
+        <nav class="flex flex-col space-y-6 text-center">
+          <a
+            href="#about"
+            class="mobile-nav-link font-serif text-2xl text-white hover:text-acrobate-mustard transition-colors"
+            >Notre Histoire</a
+          >
+          <a
+            href="#ambiance"
+            class="mobile-nav-link font-serif text-2xl text-white hover:text-acrobate-mustard transition-colors"
+            >Le Cadre Lumineux</a
+          >
+          <a
+            href="#menu"
+            class="mobile-nav-link font-serif text-2xl text-white hover:text-acrobate-mustard transition-colors"
+            >La Carte & Plats</a
+          >
+          <a
+            href="#gallery"
+            class="mobile-nav-link font-serif text-2xl text-white hover:text-acrobate-mustard transition-colors"
+            >Galerie Photos</a
+          >
+          <a
+            href="#contact"
+            class="mobile-nav-link font-serif text-2xl text-white hover:text-acrobate-mustard transition-colors"
+            >Accès & Contact</a
+          >
+        </nav>
+
+        <div class="space-y-4 pt-6 border-t border-white/10">
+          <a
+            href="#reservation"
+            class="mobile-nav-link w-full py-4 rounded-full text-center text-xs font-bold tracking-widest uppercase bg-acrobate-mustard text-acrobate-black block shadow-lg"
+          >
+            Réserver une Table
+          </a>
+          <p class="text-center text-xs text-acrobate-grayMuted tracking-wider">
+            Une parenthèse gourmande et lumineuse
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden bg-acrobate-black"
+    >
+      <!-- Background Interior Photo & Dark Gradient Overlay for Contrast -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85"
+          alt="Cadre intérieur lumineux L'Acrobate Restaurant"
+          class="w-full h-full object-cover object-center filter brightness-[0.6] contrast-[1.1] scale-105 transition-transform duration-1000 ease-out"
+          id="hero-bg-img"
+        />
+        <div class="absolute inset-0 bg-hero-overlay"></div>
+        <!-- Vertical Window Slats Pattern -->
+        <div
+          class="absolute inset-0 bg-window-slats opacity-40 pointer-events-none"
+        ></div>
+      </div>
+
+      <!-- Hero Content Container with High Visibility -->
+      <div
+        class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center"
+      >
+        <!-- Mustard Tagline Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-acrobate-mustard/40 bg-acrobate-black/70 backdrop-blur-md mb-6 transition-all duration-500"
+        >
+          <span
+            class="w-2.5 h-2.5 rounded-full bg-acrobate-mustard animate-pulse"
+          ></span>
+          <span
+            class="text-xs font-semibold tracking-widest uppercase text-acrobate-ivory"
+            >Une expérience contemporaine & lumineuse</span
+          >
+        </div>
+
+        <!-- Main Title - Guaranteed Contrast -->
+        <h1
+          class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1] mb-6 drop-shadow-md"
+        >
+          Le plaisir de <br />
+          <span class="italic font-normal text-acrobate-mustard"
+            >se retrouver.</span
+          >
+        </h1>
+
+        <!-- Description -->
+        <p
+          class="max-w-2xl text-base sm:text-lg text-acrobate-ivory/90 font-normal leading-relaxed mb-10 drop-shadow-sm"
+        >
+          Découvrez l'univers de L'Acrobate Restaurant : un équilibre naturel
+          entre baies vitrées baignées de soleil, assises jaune moutarde et
+          gastronomie conviviale.
+        </p>
+
+        <!-- Call to Action Buttons -->
+        <div
+          class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+        >
+          <a
+            href="#menu"
+            class="w-full sm:w-auto px-8 py-4 rounded-full bg-acrobate-mustard hover:bg-acrobate-mustardDark text-acrobate-black font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-xl shadow-acrobate-mustard/20 text-center hover:-translate-y-1"
+          >
+            Découvrir le Menu
+          </a>
+          <a
+            href="#reservation"
+            class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-white/60 hover:border-acrobate-mustard bg-acrobate-black/40 hover:bg-acrobate-black/70 text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 backdrop-blur-sm text-center"
+          >
+            Réserver une Table
+          </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="mt-16">
+          <a
+            href="#about"
+            aria-label="Défiler vers le bas"
+            class="inline-flex flex-col items-center text-white/70 hover:text-acrobate-mustard transition-colors"
+          >
+            <span
+              class="text-[10px] uppercase tracking-[0.2em] mb-2 font-semibold"
+              >Découvrir l'établissement</span
+            >
+            <i
+              class="fa-solid fa-chevron-down text-xs animate-bounce text-acrobate-mustard"
+            ></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: À PROPOS & HISTOIRE -->
+    <section
+      id="about"
+      class="py-24 px-6 bg-acrobate-ivory relative border-b border-acrobate-beige"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+        >
+          <!-- Editorial Image Composition -->
+          <div class="lg:col-span-6 relative">
+            <div
+              class="relative z-10 rounded-2xl overflow-hidden border border-acrobate-beige shadow-2xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80"
+                alt="Espace lumineux L'Acrobate Restaurant"
+                class="w-full h-[460px] sm:h-[540px] object-cover filter brightness-95 hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+
+            <!-- Mustard Accent Box -->
+            <div
+              class="absolute -bottom-6 -right-6 w-2/3 h-2/3 border-2 border-acrobate-mustard rounded-2xl -z-0 hidden sm:block"
+            ></div>
+
+            <!-- Design Tag -->
+            <div
+              class="absolute top-6 left-6 z-20 bg-acrobate-black text-white px-4 py-2.5 rounded-lg border border-acrobate-mustard/40 shadow-lg"
+            >
+              <span
+                class="text-[10px] tracking-widest uppercase font-bold text-acrobate-mustard block"
+                >Atmosphère & Matières</span
+              >
+              <span class="text-xs font-serif italic text-acrobate-ivory"
+                >Bois Clair & Touches Moutarde</span
+              >
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="lg:col-span-6 flex flex-col justify-center">
+            <div class="inline-flex items-center gap-2 mb-3">
+              <span class="w-8 h-[2px] bg-acrobate-mustard"></span>
+              <span
+                class="text-xs tracking-[0.2em] uppercase text-acrobate-mustardDark font-bold"
+                >L'Établissement</span
+              >
+            </div>
+
+            <h2
+              class="font-serif text-3xl sm:text-5xl font-bold text-acrobate-black mb-6 leading-tight"
+            >
+              Une parenthèse gourmande, <br /><span
+                class="italic font-normal text-acrobate-mustardDark"
+                >dans un cadre qui inspire.</span
+              >
+            </h2>
+
+            <p
+              class="text-acrobate-grayDark text-base font-normal leading-relaxed mb-6"
+            >
+              Poussés par le désir de créer un lieu convivial et vibrant, nous
+              avons conçu L'Acrobate Restaurant autour de grandes ouvertures
+              vitrées inondant la salle de lumière naturelle.
+            </p>
+
+            <p class="text-acrobate-grayMuted text-sm leading-relaxed mb-8">
+              Entre fauteuils moutarde chaleureux, structures métalliques noires
+              et détails en bois naturel, chaque instant passé chez nous est une
+              invitation au confort, aux échanges et au plaisir de la bonne
+              table.
+            </p>
+
+            <!-- Feature Pillars -->
+            <div
+              class="grid grid-cols-2 gap-4 pt-4 border-t border-acrobate-beige mb-8"
+            >
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-8 h-8 rounded-full bg-acrobate-mustard/20 border border-acrobate-mustard flex items-center justify-center shrink-0 mt-1"
+                >
+                  <i
+                    class="fa-solid fa-sun text-acrobate-mustardDark text-xs"
+                  ></i>
+                </div>
+                <div>
+                  <h4
+                    class="text-xs font-bold uppercase tracking-wider text-acrobate-black"
+                  >
+                    Lumière Abondante
+                  </h4>
+                  <p class="text-[11px] text-acrobate-grayMuted">
+                    Grandes baies vitrées
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-8 h-8 rounded-full bg-acrobate-green/20 border border-acrobate-green flex items-center justify-center shrink-0 mt-1"
+                >
+                  <i class="fa-solid fa-leaf text-acrobate-green text-xs"></i>
+                </div>
+                <div>
+                  <h4
+                    class="text-xs font-bold uppercase tracking-wider text-acrobate-black"
+                  >
+                    Touches Végétales
+                  </h4>
+                  <p class="text-[11px] text-acrobate-grayMuted">
+                    Plantes et verdure
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a
+                href="#ambiance"
+                class="inline-flex items-center text-xs uppercase tracking-widest font-bold text-acrobate-black hover:text-acrobate-mustardDark transition-colors group"
+              >
+                <span>Explorer l'expérience du cadre</span>
+                <i
+                  class="fa-solid fa-arrow-right ml-2 text-acrobate-mustard group-hover:translate-x-1 transition-transform"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: LE CADRE & AMBIANCE -->
+    <section
+      id="ambiance"
+      class="py-24 px-6 bg-acrobate-black text-white relative"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span
+            class="text-xs tracking-[0.25em] uppercase text-acrobate-mustard font-bold block mb-2"
+            >Immersion Cadre</span
+          >
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+            L'Atmosphère L'Acrobate
+          </h2>
+          <p class="text-acrobate-ivory/80 text-sm sm:text-base font-normal">
+            Une alliance subtile de métal noir, de confort moutarde et
+            d'éclairage chaleureux.
+          </p>
+        </div>
+
+        <!-- Atmosphere Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="bg-acrobate-darkCard p-8 rounded-2xl border border-white/10 hover:border-acrobate-mustard/60 transition-all duration-300 group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-acrobate-mustard text-acrobate-black mb-6 flex items-center justify-center group-hover:scale-110 transition-transform font-bold"
+            >
+              <i class="fa-solid fa-chair text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-white font-bold mb-3">
+              Fauteuils Jaune Moutarde
+            </h3>
+            <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-4">
+              Touche de couleur signature offrant assise confortable et gaité
+              contemporaine au cœur de la salle.
+            </p>
+            <span
+              class="text-[10px] text-acrobate-mustard tracking-wider uppercase font-bold"
+              >Signature Design</span
+            >
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="bg-acrobate-darkCard p-8 rounded-2xl border border-white/10 hover:border-acrobate-mustard/60 transition-all duration-300 group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-acrobate-black border border-acrobate-mustard/40 text-acrobate-mustard mb-6 flex items-center justify-center group-hover:scale-110 transition-transform"
+            >
+              <i class="fa-solid fa-border-all text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-white font-bold mb-3">
+              Structures Métalliques
+            </h3>
+            <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-4">
+              Lignes noires architecturales cadrant la lumière naturelle et
+              structurant l'espace avec élégance.
+            </p>
+            <span
+              class="text-[10px] text-acrobate-mustard tracking-wider uppercase font-bold"
+              >Esprit Industriel Chic</span
+            >
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="bg-acrobate-darkCard p-8 rounded-2xl border border-white/10 hover:border-acrobate-mustard/60 transition-all duration-300 group"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-acrobate-wood/20 border border-acrobate-wood text-acrobate-wood mb-6 flex items-center justify-center group-hover:scale-110 transition-transform"
+            >
+              <i class="fa-solid fa-tree text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-white font-bold mb-3">
+              Bois Clair & Végétal
+            </h3>
+            <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-4">
+              Matières naturelles et plantes sélectionnées créant un cocon
+              apaisant en pleine journée.
+            </p>
+            <span
+              class="text-[10px] text-acrobate-mustard tracking-wider uppercase font-bold"
+              >Matières Chaleureuses</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LA CARTE & SPÉCIALITÉS -->
+    <section
+      id="menu"
+      class="py-24 px-6 bg-acrobate-ivory relative border-t border-acrobate-beige"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-acrobate-beige pb-8"
+        >
+          <div>
+            <span
+              class="text-xs tracking-[0.25em] uppercase text-acrobate-mustardDark font-bold block mb-2"
+              >Plaisirs Gourmands</span
+            >
+            <h2
+              class="font-serif text-3xl sm:text-5xl font-bold text-acrobate-black"
+            >
+              La Carte du Restaurant
+            </h2>
+          </div>
+
+          <!-- Notice Badge for Unconfirmed Details -->
+          <div
+            class="mt-4 md:mt-0 flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-acrobate-beige text-[11px] text-acrobate-grayMuted shadow-sm"
+          >
+            <i class="fa-solid fa-circle-info text-acrobate-mustardDark"></i>
+            <span
+              >Propositions de démonstration — Carte définitive à confirmer avec
+              l'établissement</span
+            >
+          </div>
+        </div>
+
+        <!-- Filter Buttons Tabs -->
+        <div class="flex flex-wrap items-center gap-3 mb-12" id="menu-filters">
+          <button
+            data-category="all"
+            class="menu-tab-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-acrobate-mustard text-acrobate-black shadow-md"
+          >
+            Tous les plats
+          </button>
+          <button
+            data-category="starters"
+            class="menu-tab-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white text-acrobate-black hover:bg-acrobate-beige border border-acrobate-beige"
+          >
+            Entrées
+          </button>
+          <button
+            data-category="mains"
+            class="menu-tab-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white text-acrobate-black hover:bg-acrobate-beige border border-acrobate-beige"
+          >
+            Plats Signatures
+          </button>
+          <button
+            data-category="desserts"
+            class="menu-tab-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white text-acrobate-black hover:bg-acrobate-beige border border-acrobate-beige"
+          >
+            Desserts
+          </button>
+          <button
+            data-category="drinks"
+            class="menu-tab-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white text-acrobate-black hover:bg-acrobate-beige border border-acrobate-beige"
+          >
+            Boissons & Rafraîchissements
+          </button>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="menu-grid">
+          <!-- Item 1: Starter -->
+          <div
+            class="menu-item bg-white p-6 rounded-2xl border border-acrobate-beige hover:border-acrobate-mustard transition-all duration-300 flex flex-col sm:flex-row gap-5 group shadow-sm hover:shadow-md"
+            data-category="starters"
+          >
+            <div
+              class="w-full sm:w-32 h-32 rounded-xl overflow-hidden shrink-0 relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80"
+                alt="Salade fraîche au chèvre chaud"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-2 left-2 bg-acrobate-black text-white px-2 py-0.5 rounded text-[9px] uppercase font-bold"
+                >Entrée</span
+              >
+            </div>
+            <div class="flex flex-col justify-between flex-grow">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                  <h3
+                    class="font-serif text-lg font-bold text-acrobate-black group-hover:text-acrobate-mustardDark transition-colors"
+                  >
+                    Salade de Chèvre Chaud & Miel
+                  </h3>
+                  <span
+                    class="text-sm font-bold text-acrobate-mustardDark font-serif"
+                    >À confirmer</span
+                  >
+                </div>
+                <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-3">
+                  Toast de chèvre rôti au miel, jeunes pousses de saison, noix
+                  grillées et vinaigrette aux herbes fraîches.
+                </p>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-acrobate-beige pt-2"
+              >
+                <span
+                  class="text-[10px] text-acrobate-grayMuted uppercase tracking-wider"
+                  ><i class="fa-solid fa-leaf text-acrobate-green mr-1"></i>
+                  Fraîcheur maison</span
+                >
+                <button
+                  class="view-dish-modal text-xs text-acrobate-mustardDark font-bold hover:underline"
+                  data-title="Salade de Chèvre Chaud & Miel"
+                  data-desc="Toast de chèvre rôti au miel, jeunes pousses de saison, noix grillées et vinaigrette aux herbes fraîches."
+                  data-img="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80"
+                >
+                  Détails <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Main -->
+          <div
+            class="menu-item bg-white p-6 rounded-2xl border border-acrobate-beige hover:border-acrobate-mustard transition-all duration-300 flex flex-col sm:flex-row gap-5 group shadow-sm hover:shadow-md"
+            data-category="mains"
+          >
+            <div
+              class="w-full sm:w-32 h-32 rounded-xl overflow-hidden shrink-0 relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80"
+                alt="Pièce de Bœuf Grillée"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-2 left-2 bg-acrobate-black text-white px-2 py-0.5 rounded text-[9px] uppercase font-bold"
+                >Signature</span
+              >
+            </div>
+            <div class="flex flex-col justify-between flex-grow">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                  <h3
+                    class="font-serif text-lg font-bold text-acrobate-black group-hover:text-acrobate-mustardDark transition-colors"
+                  >
+                    Pavé de Bœuf Saisi au Thym
+                  </h3>
+                  <span
+                    class="text-sm font-bold text-acrobate-mustardDark font-serif"
+                    >À confirmer</span
+                  >
+                </div>
+                <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-3">
+                  Pavé de bœuf sélectionné, écrasé de pommes de terre au beurre
+                  demi-sel et jus réduit au thym frais.
+                </p>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-acrobate-beige pt-2"
+              >
+                <span
+                  class="text-[10px] text-acrobate-grayMuted uppercase tracking-wider"
+                  ><i
+                    class="fa-solid fa-fire text-acrobate-mustardDark mr-1"
+                  ></i>
+                  Cuisson maîtrisée</span
+                >
+                <button
+                  class="view-dish-modal text-xs text-acrobate-mustardDark font-bold hover:underline"
+                  data-title="Pavé de Bœuf Saisi au Thym"
+                  data-desc="Pavé de bœuf sélectionné, écrasé de pommes de terre au beurre demi-sel et jus réduit au thym frais."
+                  data-img="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                >
+                  Détails <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Dessert -->
+          <div
+            class="menu-item bg-white p-6 rounded-2xl border border-acrobate-beige hover:border-acrobate-mustard transition-all duration-300 flex flex-col sm:flex-row gap-5 group shadow-sm hover:shadow-md"
+            data-category="desserts"
+          >
+            <div
+              class="w-full sm:w-32 h-32 rounded-xl overflow-hidden shrink-0 relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=500&q=80"
+                alt="Dessert Gourmand"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-2 left-2 bg-acrobate-black text-white px-2 py-0.5 rounded text-[9px] uppercase font-bold"
+                >Dessert</span
+              >
+            </div>
+            <div class="flex flex-col justify-between flex-grow">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                  <h3
+                    class="font-serif text-lg font-bold text-acrobate-black group-hover:text-acrobate-mustardDark transition-colors"
+                  >
+                    Tarte Citron Meringuée Revisitée
+                  </h3>
+                  <span
+                    class="text-sm font-bold text-acrobate-mustardDark font-serif"
+                    >À confirmer</span
+                  >
+                </div>
+                <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-3">
+                  Crème citron acidulée, sable breton croustillant et meringue
+                  italienne dorée au chalumeau.
+                </p>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-acrobate-beige pt-2"
+              >
+                <span
+                  class="text-[10px] text-acrobate-grayMuted uppercase tracking-wider"
+                  ><i
+                    class="fa-solid fa-cookie text-acrobate-mustardDark mr-1"
+                  ></i>
+                  Fait Maison</span
+                >
+                <button
+                  class="view-dish-modal text-xs text-acrobate-mustardDark font-bold hover:underline"
+                  data-title="Tarte Citron Meringuée Revisitée"
+                  data-desc="Crème citron acidulée, sable breton croustillant et meringue italienne dorée au chalumeau."
+                  data-img="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80"
+                >
+                  Détails <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Drink -->
+          <div
+            class="menu-item bg-white p-6 rounded-2xl border border-acrobate-beige hover:border-acrobate-mustard transition-all duration-300 flex flex-col sm:flex-row gap-5 group shadow-sm hover:shadow-md"
+            data-category="drinks"
+          >
+            <div
+              class="w-full sm:w-32 h-32 rounded-xl overflow-hidden shrink-0 relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=500&q=80"
+                alt="Cocktail Maison"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-2 left-2 bg-acrobate-black text-white px-2 py-0.5 rounded text-[9px] uppercase font-bold"
+                >Cocktail</span
+              >
+            </div>
+            <div class="flex flex-col justify-between flex-grow">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                  <h3
+                    class="font-serif text-lg font-bold text-acrobate-black group-hover:text-acrobate-mustardDark transition-colors"
+                  >
+                    Cocktail Signature L'Acrobate
+                  </h3>
+                  <span
+                    class="text-sm font-bold text-acrobate-mustardDark font-serif"
+                    >À confirmer</span
+                  >
+                </div>
+                <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-3">
+                  Création fraîche du barman mariant agrumes ensoleillés, touche
+                  de gingembre et fines bulles.
+                </p>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-acrobate-beige pt-2"
+              >
+                <span
+                  class="text-[10px] text-acrobate-grayMuted uppercase tracking-wider"
+                  ><i
+                    class="fa-solid fa-glass-water text-acrobate-mustardDark mr-1"
+                  ></i>
+                  Rafraîchissant</span
+                >
+                <button
+                  class="view-dish-modal text-xs text-acrobate-mustardDark font-bold hover:underline"
+                  data-title="Cocktail Signature L'Acrobate"
+                  data-desc="Création fraîche du barman mariant agrumes ensoleillés, touche de gingembre et fines bulles."
+                  data-img="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
+                >
+                  Détails <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: GALERIE PHOTOGRAPHIQUE -->
+    <section id="gallery" class="py-24 px-6 bg-acrobate-black text-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span
+            class="text-xs tracking-[0.25em] uppercase text-acrobate-mustard font-bold block mb-2"
+            >Galerie Éditioriale</span
+          >
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+            L'Acrobate en Images
+          </h2>
+          <p class="text-acrobate-ivory/80 text-sm font-normal">
+            Cliquez sur une photo pour l'agrandir en haute définition.
+          </p>
+        </div>
+
+        <!-- Asymmetric Grid Gallery -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Gallery Image 1 -->
+          <div
+            class="gallery-card group relative h-80 rounded-2xl overflow-hidden cursor-pointer border border-white/10"
+            data-img="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
+            data-caption="Salle principalebaignée de lumière naturelle"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+              alt="Salle lumineuse du restaurant L'Acrobate"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-acrobate-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end"
+            >
+              <span
+                class="text-[10px] uppercase tracking-widest text-acrobate-mustard font-bold"
+                >Lumière & Espace</span
+              >
+              <h4 class="font-serif text-lg text-white font-bold">
+                Salle Principale
+              </h4>
+            </div>
+          </div>
+
+          <!-- Gallery Image 2 -->
+          <div
+            class="gallery-card group relative h-80 rounded-2xl overflow-hidden cursor-pointer border border-white/10"
+            data-img="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=85"
+            data-caption="Assises jaune moutarde et baies vitrées"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80"
+              alt="Mobilier et fauteuils moutarde"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-acrobate-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end"
+            >
+              <span
+                class="text-[10px] uppercase tracking-widest text-acrobate-mustard font-bold"
+                >Design Signature</span
+              >
+              <h4 class="font-serif text-lg text-white font-bold">
+                Fauteuils Moutarde
+              </h4>
+            </div>
+          </div>
+
+          <!-- Gallery Image 3 -->
+          <div
+            class="gallery-card group relative h-80 rounded-2xl overflow-hidden cursor-pointer border border-white/10"
+            data-img="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=85"
+            data-caption="Tables dressées et verres éclatants"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
+              alt="Table de restaurant dressée"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-acrobate-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end"
+            >
+              <span
+                class="text-[10px] uppercase tracking-widest text-acrobate-mustard font-bold"
+                >Art de la Table</span
+              >
+              <h4 class="font-serif text-lg text-white font-bold">
+                Convivialité
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: RÉSERVATION INTERACTIVE -->
+    <section
+      id="reservation"
+      class="py-24 px-6 bg-acrobate-ivory relative border-t border-acrobate-beige"
+    >
+      <div
+        class="max-w-5xl mx-auto bg-white rounded-3xl border border-acrobate-beige p-8 sm:p-12 relative overflow-hidden shadow-xl"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Info Column -->
+          <div class="lg:col-span-5">
+            <span
+              class="text-xs tracking-[0.25em] uppercase text-acrobate-mustardDark font-bold block mb-2"
+              >Demande de Table</span
+            >
+            <h2 class="font-serif text-3xl font-bold text-acrobate-black mb-4">
+              Réservez votre Moment
+            </h2>
+            <p class="text-xs text-acrobate-grayMuted leading-relaxed mb-6">
+              Complétez ce formulaire pour nous transmettre votre demande. Notre
+              équipe prendra contact avec vous afin de confirmer la
+              disponibilité.
+            </p>
+
+            <div
+              class="space-y-4 pt-4 border-t border-acrobate-beige text-xs text-acrobate-black"
+            >
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-clock text-acrobate-mustardDark"></i>
+                <span>Confirmation rapide selon nos horaires d'ouverture</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-acrobate-mustardDark"></i>
+                <span>Téléphone officiel : À confirmer</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i
+                  class="fa-brands fa-whatsapp text-acrobate-green text-sm"
+                ></i>
+                <span>Transmission directe via WhatsApp active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="lg:col-span-7">
+            <form id="booking-form" class="space-y-4" novalidate>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    for="res-name"
+                    class="block text-[11px] uppercase tracking-wider text-acrobate-black font-bold mb-1.5"
+                    >Nom complet *</label
+                  >
+                  <input
+                    type="text"
+                    id="res-name"
+                    required
+                    placeholder="Votre nom"
+                    class="w-full bg-acrobate-ivory border border-acrobate-beige rounded-xl px-4 py-3 text-xs text-acrobate-black focus:border-acrobate-mustard transition-colors"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="res-phone"
+                    class="block text-[11px] uppercase tracking-wider text-acrobate-black font-bold mb-1.5"
+                    >Téléphone *</label
+                  >
+                  <input
+                    type="tel"
+                    id="res-phone"
+                    required
+                    placeholder="+33 6 00 00 00 00"
+                    class="w-full bg-acrobate-ivory border border-acrobate-beige rounded-xl px-4 py-3 text-xs text-acrobate-black focus:border-acrobate-mustard transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label
+                    for="res-date"
+                    class="block text-[11px] uppercase tracking-wider text-acrobate-black font-bold mb-1.5"
+                    >Date souhaitée *</label
+                  >
+                  <input
+                    type="date"
+                    id="res-date"
+                    required
+                    class="w-full bg-acrobate-ivory border border-acrobate-beige rounded-xl px-3 py-3 text-xs text-acrobate-black focus:border-acrobate-mustard transition-colors"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="res-time"
+                    class="block text-[11px] uppercase tracking-wider text-acrobate-black font-bold mb-1.5"
+                    >Heure *</label
+                  >
+                  <select
+                    id="res-time"
+                    required
+                    class="w-full bg-acrobate-ivory border border-acrobate-beige rounded-xl px-3 py-3 text-xs text-acrobate-black focus:border-acrobate-mustard transition-colors"
+                  >
+                    <option value="">Choisir...</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    for="res-guests"
+                    class="block text-[11px] uppercase tracking-wider text-acrobate-black font-bold mb-1.5"
+                    >Couverts *</label
+                  >
+                  <select
+                    id="res-guests"
+                    required
+                    class="w-full bg-acrobate-ivory border border-acrobate-beige rounded-xl px-3 py-3 text-xs text-acrobate-black focus:border-acrobate-mustard transition-colors"
+                  >
+                    <option value="1">1 personne</option>
+                    <option value="2" selected>2 personnes</option>
+                    <option value="3">3 personnes</option>
+                    <option value="4">4 personnes</option>
+                    <option value="5+">5+ personnes</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="res-notes"
+                  class="block text-[11px] uppercase tracking-wider text-acrobate-black font-bold mb-1.5"
+                  >Demande particulière</label
+                >
+                <textarea
+                  id="res-notes"
+                  rows="2"
+                  placeholder="Allergies, installation près des fenêtres..."
+                  class="w-full bg-acrobate-ivory border border-acrobate-beige rounded-xl px-4 py-2.5 text-xs text-acrobate-black focus:border-acrobate-mustard transition-colors"
+                ></textarea>
+              </div>
+
+              <div
+                id="form-feedback"
+                class="hidden text-xs py-2 px-3 rounded-lg"
+              ></div>
+
+              <button
+                type="submit"
+                class="w-full py-4 rounded-xl bg-acrobate-mustard hover:bg-acrobate-mustardDark text-acrobate-black font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md flex items-center justify-center gap-2"
+              >
+                <i class="fa-paper-plane fa-solid"></i>
+                <span>Envoyer la demande de réservation</span>
+              </button>
+
+              <p class="text-[10px] text-center text-acrobate-grayMuted">
+                * Toute demande reste sujette à validation préalable par
+                l'équipe de L'Acrobate.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CONTACT & LOCALISATION -->
+    <section
+      id="contact"
+      class="py-24 px-6 bg-acrobate-black text-white border-t border-acrobate-grayDark"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Coordinates -->
+          <div class="lg:col-span-5 space-y-8">
+            <div>
+              <span
+                class="text-xs tracking-[0.25em] uppercase text-acrobate-mustard font-bold block mb-2"
+                >Informations Pratiques</span
+              >
+              <h2
+                class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6"
+              >
+                Nous Trouver & Contacter
+              </h2>
+            </div>
+
+            <div class="space-y-6 text-xs text-acrobate-ivory/90">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-xl bg-acrobate-darkCard border border-acrobate-mustard/40 flex items-center justify-center shrink-0 text-acrobate-mustard"
+                >
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h4
+                    class="font-bold text-white uppercase tracking-wider mb-1"
+                  >
+                    Adresse Officielle
+                  </h4>
+                  <p class="text-acrobate-grayMuted">
+                    Localisation exacte à confirmer par le restaurant.
+                  </p>
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-block mt-2 text-acrobate-mustard hover:underline font-bold"
+                    >Lancer Google Maps &rarr;</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-xl bg-acrobate-darkCard border border-acrobate-mustard/40 flex items-center justify-center shrink-0 text-acrobate-mustard"
+                >
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <h4
+                    class="font-bold text-white uppercase tracking-wider mb-1"
+                  >
+                    Horaires d'Ouverture
+                  </h4>
+                  <p class="text-acrobate-grayMuted">
+                    Du Mardi au Dimanche : Service Midi & Soir
+                  </p>
+                  <p class="text-acrobate-mustard mt-1 text-[11px] font-bold">
+                    Horaires exacts à confirmer
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-xl bg-acrobate-darkCard border border-acrobate-mustard/40 flex items-center justify-center shrink-0 text-acrobate-mustard"
+                >
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h4
+                    class="font-bold text-white uppercase tracking-wider mb-1"
+                  >
+                    Contact Direct
+                  </h4>
+                  <p class="text-acrobate-grayMuted">
+                    E-mail : contact@lacrobate-restaurant.com (Provisoire)
+                  </p>
+                  <p class="text-acrobate-grayMuted">Téléphone : À confirmer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Map Placeholder Frame -->
+          <div
+            class="lg:col-span-7 bg-acrobate-darkCard rounded-3xl overflow-hidden border border-white/10 relative min-h-[380px] flex items-center justify-center p-8 text-center"
+          >
+            <div
+              class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center filter grayscale"
+            ></div>
+            <div
+              class="relative z-10 bg-acrobate-black/90 backdrop-blur-md p-8 rounded-2xl border border-acrobate-mustard/30 max-w-md"
+            >
+              <i
+                class="fa-solid fa-map-location-dot text-acrobate-mustard text-3xl mb-4"
+              ></i>
+              <h3 class="font-serif text-2xl font-bold text-white mb-2">
+                Localisation du Restaurant
+              </h3>
+              <p class="text-xs text-acrobate-grayMuted mb-6">
+                La carte dynamique sera intégrée dès validation officielle de
+                l'adresse par L'Acrobate Restaurant.
+              </p>
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                class="px-6 py-3 rounded-full bg-acrobate-mustard text-acrobate-black font-bold text-xs uppercase tracking-wider inline-block"
+              >
+                Ouvrir l'Itinéraire
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-acrobate-black border-t border-white/10 pt-16 pb-12 px-6 text-acrobate-grayMuted"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10"
+        >
+          <div class="md:col-span-5">
+            <a href="#hero" class="flex items-center gap-3 mb-4">
+              <span
+                class="font-serif text-2xl tracking-[0.15em] uppercase font-bold text-white"
+                >L'ACROBATE</span
+              >
+            </a>
+            <p class="text-xs leading-relaxed max-w-sm mb-6">
+              Une expérience culinaire et contemporaine dans un cadre baigné de
+              lumière naturelle.
+            </p>
+            <div class="flex items-center space-x-4">
+              <a
+                href="#"
+                aria-label="Instagram"
+                class="w-9 h-9 rounded-full bg-acrobate-darkCard border border-white/10 flex items-center justify-center text-acrobate-mustard hover:border-acrobate-mustard transition-colors"
+              >
+                <i class="fa-brands fa-instagram text-xs"></i>
+              </a>
+              <a
+                href="#"
+                aria-label="Facebook"
+                class="w-9 h-9 rounded-full bg-acrobate-darkCard border border-white/10 flex items-center justify-center text-acrobate-mustard hover:border-acrobate-mustard transition-colors"
+              >
+                <i class="fa-brands fa-facebook-f text-xs"></i>
+              </a>
+              <a
+                href="#"
+                aria-label="WhatsApp"
+                class="w-9 h-9 rounded-full bg-acrobate-darkCard border border-white/10 flex items-center justify-center text-acrobate-mustard hover:border-acrobate-mustard transition-colors"
+              >
+                <i class="fa-brands fa-whatsapp text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="md:col-span-3">
+            <h4
+              class="text-xs font-bold uppercase tracking-wider text-white mb-4"
+            >
+              Navigation
+            </h4>
+            <ul class="space-y-2 text-xs">
+              <li>
+                <a
+                  href="#about"
+                  class="hover:text-acrobate-mustard transition-colors"
+                  >Notre Histoire</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#ambiance"
+                  class="hover:text-acrobate-mustard transition-colors"
+                  >Le Cadre Lumineux</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#menu"
+                  class="hover:text-acrobate-mustard transition-colors"
+                  >La Carte du Restaurant</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  class="hover:text-acrobate-mustard transition-colors"
+                  >Galerie Photos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#reservation"
+                  class="hover:text-acrobate-mustard transition-colors"
+                  >Demande de Réservation</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-4">
+            <h4
+              class="text-xs font-bold uppercase tracking-wider text-white mb-4"
+            >
+              Prototype NEXID
+            </h4>
+            <p class="text-[11px] leading-relaxed mb-3">
+              Ce site web constitue un prototype visuel d'exception conçu par
+              <strong class="text-acrobate-mustard"
+                >NEXID — Nouvelle Identité</strong
+              >.
+            </p>
+            <p class="text-[10px] text-acrobate-grayMuted">
+              Les informations commerciales restent soumises à validation par
+              L'Acrobate Restaurant.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]"
+        >
+          <p>&copy; 2026 L'Acrobate Restaurant. Tous droits réservés.</p>
+          <p class="text-acrobate-mustard font-semibold">
+            Conception Web : NEXID — Nouvelle Identité
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- DISH DETAILS MODAL -->
+    <div
+      id="dish-modal"
+      class="fixed inset-0 z-50 hidden bg-acrobate-black/85 backdrop-blur-md flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white border border-acrobate-beige rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative"
+      >
+        <button
+          id="close-dish-modal"
+          class="absolute top-4 right-4 w-9 h-9 rounded-full bg-acrobate-black text-white flex items-center justify-center z-10 hover:bg-acrobate-mustard hover:text-acrobate-black transition-colors"
+          aria-label="Fermer"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="h-64 relative">
+          <img
+            id="modal-dish-img"
+            src=""
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="p-6">
+          <h3
+            id="modal-dish-title"
+            class="font-serif text-2xl font-bold text-acrobate-black mb-2"
+          ></h3>
+          <p
+            id="modal-dish-desc"
+            class="text-xs text-acrobate-grayMuted leading-relaxed mb-6"
+          ></p>
+          <a
+            href="#reservation"
+            id="modal-reserve-btn"
+            class="block w-full py-3.5 rounded-full bg-acrobate-mustard text-acrobate-black font-bold text-xs text-center uppercase tracking-wider shadow-md"
+          >
+            Réserver pour déguster ce plat
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY LIGHTBOX MODAL -->
+    <div
+      id="lightbox-modal"
+      class="fixed inset-0 z-50 hidden bg-acrobate-black/95 backdrop-blur-xl flex flex-col justify-between p-6"
+    >
+      <div class="flex justify-between items-center z-10">
+        <span
+          id="lightbox-counter"
+          class="text-xs text-acrobate-mustard tracking-widest font-mono"
+          >1 / 3</span
+        >
+        <button
+          id="close-lightbox"
+          class="w-10 h-10 rounded-full bg-acrobate-darkCard border border-white/20 text-white flex items-center justify-center hover:bg-acrobate-mustard hover:text-acrobate-black transition-colors"
+          aria-label="Fermer la galerie"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="relative flex-grow flex items-center justify-center my-4">
+        <img
+          id="lightbox-img"
+          src=""
+          alt=""
+          class="max-h-[75vh] max-w-full object-contain rounded-xl shadow-2xl"
+        />
+
+        <!-- Controls -->
+        <button
+          id="lightbox-prev"
+          class="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-acrobate-black/80 border border-white/20 text-white flex items-center justify-center hover:bg-acrobate-mustard hover:text-acrobate-black transition-colors"
+          aria-label="Image précédente"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button
+          id="lightbox-next"
+          class="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-acrobate-black/80 border border-white/20 text-white flex items-center justify-center hover:bg-acrobate-mustard hover:text-acrobate-black transition-colors"
+          aria-label="Image suivante"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="text-center pb-2">
+        <p
+          id="lightbox-caption"
+          class="font-serif text-lg text-white font-bold"
+        ></p>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /* 1. Header Scroll Behavior */
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            header.classList.add(
+              "bg-acrobate-black/95",
+              "backdrop-blur-md",
+              "py-3.5",
+              "shadow-xl",
+            );
+            header.classList.remove("py-5");
+          } else {
+            header.classList.remove(
+              "bg-acrobate-black/95",
+              "backdrop-blur-md",
+              "py-3.5",
+              "shadow-xl",
+            );
+            header.classList.add("py-5");
+          }
+        });
+
+        /* 2. Mobile Menu Toggle with Blur Overlay */
+        const mobileBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+        let isMenuOpen = false;
+
+        // Keep the fixed overlay outside the filtered header so its blur reaches the page.
+        if (mobileMenu) document.body.appendChild(mobileMenu);
+
+        function toggleMobileMenu() {
+          isMenuOpen = !isMenuOpen;
+          if (isMenuOpen) {
+            mobileMenu.classList.remove("hidden");
+            setTimeout(() => mobileMenu.classList.remove("opacity-0"), 10);
+            document.body.style.overflow = "hidden";
+            mobileBtn.setAttribute("aria-expanded", "true");
+          } else {
+            mobileMenu.classList.add("opacity-0");
+            mobileBtn.setAttribute("aria-expanded", "false");
+            setTimeout(() => {
+              mobileMenu.classList.add("hidden");
+              document.body.style.overflow = "";
+            }, 300);
+          }
+        }
+
+        mobileBtn.addEventListener("click", toggleMobileMenu);
+        mobileLinks.forEach((link) =>
+          link.addEventListener("click", toggleMobileMenu),
+        );
+
+        /* 3. Interactive Menu Filter Tabs */
+        const filterBtns = document.querySelectorAll(".menu-tab-btn");
+        const menuItems = document.querySelectorAll(".menu-item");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const cat = btn.getAttribute("data-category");
+
+            filterBtns.forEach((b) => {
+              b.classList.remove(
+                "bg-acrobate-mustard",
+                "text-acrobate-black",
+                "shadow-md",
+              );
+              b.classList.add("bg-white", "text-acrobate-black");
+            });
+
+            btn.classList.add(
+              "bg-acrobate-mustard",
+              "text-acrobate-black",
+              "shadow-md",
+            );
+            btn.classList.remove("bg-white");
+
+            menuItems.forEach((item) => {
+              if (cat === "all" || item.getAttribute("data-category") === cat) {
+                item.style.display = "flex";
+                setTimeout(() => (item.style.opacity = "1"), 50);
+              } else {
+                item.style.opacity = "0";
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+
+        /* 4. Dish Detail Modal Handler */
+        const dishModal = document.getElementById("dish-modal");
+        const closeDishModalBtn = document.getElementById("close-dish-modal");
+        const dishModalImg = document.getElementById("modal-dish-img");
+        const dishModalTitle = document.getElementById("modal-dish-title");
+        const dishModalDesc = document.getElementById("modal-dish-desc");
+        const modalReserveBtn = document.getElementById("modal-reserve-btn");
+
+        document.querySelectorAll(".view-dish-modal").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            dishModalImg.src = btn.getAttribute("data-img");
+            dishModalTitle.textContent = btn.getAttribute("data-title");
+            dishModalDesc.textContent = btn.getAttribute("data-desc");
+            dishModal.classList.remove("hidden");
+          });
+        });
+
+        closeDishModalBtn.addEventListener("click", () =>
+          dishModal.classList.add("hidden"),
+        );
+        modalReserveBtn.addEventListener("click", () =>
+          dishModal.classList.add("hidden"),
+        );
+
+        /* 5. Gallery Lightbox Handler */
+        const lightbox = document.getElementById("lightbox-modal");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxCaption = document.getElementById("lightbox-caption");
+        const lightboxCounter = document.getElementById("lightbox-counter");
+        const closeLightboxBtn = document.getElementById("close-lightbox");
+        const prevBtn = document.getElementById("lightbox-prev");
+        const nextBtn = document.getElementById("lightbox-next");
+
+        const galleryCards = Array.from(
+          document.querySelectorAll(".gallery-card"),
+        );
+        let currentGalleryIndex = 0;
+
+        function showLightboxIndex(index) {
+          currentGalleryIndex = index;
+          const card = galleryCards[index];
+          lightboxImg.src = card.getAttribute("data-img");
+          lightboxCaption.textContent = card.getAttribute("data-caption");
+          lightboxCounter.textContent = `${index + 1} / ${galleryCards.length}`;
+        }
+
+        galleryCards.forEach((card, idx) => {
+          card.addEventListener("click", () => {
+            showLightboxIndex(idx);
+            lightbox.classList.remove("hidden");
+          });
+        });
+
+        closeLightboxBtn.addEventListener("click", () =>
+          lightbox.classList.add("hidden"),
+        );
+        prevBtn.addEventListener("click", () => {
+          let newIdx = currentGalleryIndex - 1;
+          if (newIdx < 0) newIdx = galleryCards.length - 1;
+          showLightboxIndex(newIdx);
+        });
+        nextBtn.addEventListener("click", () => {
+          let newIdx = (currentGalleryIndex + 1) % galleryCards.length;
+          showLightboxIndex(newIdx);
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            lightbox.classList.add("hidden");
+            dishModal.classList.add("hidden");
+          }
+        });
+
+        /* 6. Form Submission & WhatsApp Integration */
+        const bookingForm = document.getElementById("booking-form");
+        const formFeedback = document.getElementById("form-feedback");
+
+        bookingForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("res-name").value.trim();
+          const phone = document.getElementById("res-phone").value.trim();
+          const date = document.getElementById("res-date").value;
+          const time = document.getElementById("res-time").value;
+          const guests = document.getElementById("res-guests").value;
+          const notes = document.getElementById("res-notes").value.trim();
+
+          if (!name || !phone || !date || !time) {
+            formFeedback.textContent =
+              "Veuillez remplir tous les champs obligatoires (*).";
+            formFeedback.className =
+              "text-xs py-2 px-3 rounded-lg bg-red-100 text-red-800 border border-red-300 block font-bold";
+            return;
+          }
+
+          // Format WhatsApp Pre-filled message
+          const message = `Bonjour L'Acrobate Restaurant, je souhaite demander une réservation:\n- Nom: ${name}\n- Téléphone: ${phone}\n- Date: ${date}\n- Heure: ${time}\n- Personnes: ${guests}\n- Note: ${notes || "Aucune"}`;
+          const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+          formFeedback.innerHTML = `Demande pré-enregistrée. <a href="${whatsappUrl}" target="_blank" class="underline font-bold text-acrobate-black">Cliquez ici pour la transmettre via WhatsApp</a>.`;
+          formFeedback.className =
+            "text-xs py-3 px-4 rounded-lg bg-acrobate-mustard/30 text-acrobate-black border border-acrobate-mustard block font-bold";
+
+          bookingForm.reset();
+        });
+      });
+    </script>
+  </body>
+</html>
